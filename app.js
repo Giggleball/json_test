@@ -9,7 +9,7 @@ const app 		= express ()
 
 
 // Public files {media/css/js}
-app.use( express.static( '/public' ) )
+app.use( express.static( __dirname '/public' ) )
 
 
 // Visual template { I'll be using pug }
@@ -19,7 +19,7 @@ app.set( 'views', __dirname + '/views' )
 
 
 // The /url I want to get
-app.get( '/', ( req, res) => {
+app.get( '/', ( req, res ) => {
 	console.log( 'rendering page' )
 
 	// read the json file located at...
@@ -31,7 +31,7 @@ app.get( '/', ( req, res) => {
 	// 	// return the content of this page
 	// 	res.render( 'index', { parsedData } )
 	// })
-	res.render( '/index' )
+	res.render( 'index' )
 })
 
 // Localhost will be running on
