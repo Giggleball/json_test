@@ -37,13 +37,21 @@ function htmlToPage ( infoDiv ) {
 
 		// Because you loop through an object within an array within an object you have to access through [ ] then .
 		for( ii = 0; ii < infoDiv[i].celebrations.length; ii++ ) {
-			htmlString += ' to celebrate ' + infoDiv[i].celebrations[ii].title
+
+			// I want to add a condition to only display the info which contains info in all three sections
+			if ( infoDiv[i].celebrations[ii].length === 0 ) {
+				// Do not display it! 
+				htmlString += ''
+			} else { // continue the sentence 
+				htmlString += ' to celebrate ' + infoDiv[i].celebrations[ii].title + ' and '
+			}
 		}
 			
 
-		for( ii = 0; ii < infoDiv[i].celebrations.length; ii++ ) {
-			htmlString += ' and wear ' + infoDiv[i].celebrations[ii].colour
-		}
+		for( ii = 0; ii < infoDiv[i].celebrations.length; ii++ ) {				
+			// I want to only display the first colour in the object
+			htmlString += ' wear ' + infoDiv[i].celebrations[ii].colour
+			}
 
 		htmlString += '?</p>'
 	}
