@@ -1,5 +1,7 @@
 // Div for info
 const info = document.getElementById( 'displayInfo')
+const info1 = document.getElementById( 'displayInfo1')
+const info2 = document.getElementById( 'displayInfo2')
 
 // Select the element
 const fetch = document.getElementById( 'fetch' )
@@ -33,13 +35,15 @@ function htmlToPage ( infoDiv ) {
 	for( i = 0; i < infoDiv.length; i++ ) {
 		htmlString += '<p>' + 'Is ' + infoDiv[i].weekday + ' your favourite day '
 
-		// for( ii = 0; ii < infoDiv[i].celebrations.title.length; ii++ ) {
-		// 	htmlString += ' to celebrate ' + infoDiv[i].celebrations.title[ii]
-		// }
+		// Because you loop through an object within an array within an object you have to access through [ ] then .
+		for( ii = 0; ii < infoDiv[i].celebrations.length; ii++ ) {
+			htmlString += ' to celebrate ' + infoDiv[i].celebrations[ii].title
+		}
+			
 
-		// for ( ii = 0; ii < infoDiv[i].celebrations.colour.length; ii++ ) {
-		// 	htmlString += ' and wear ' + infoDiv[i].celebrations.colour[ii] 
-		// }
+		for( ii = 0; ii < infoDiv[i].celebrations.length; ii++ ) {
+			htmlString += ' and wear ' + infoDiv[i].celebrations[ii].colour
+		}
 
 		htmlString += '?</p>'
 	}
@@ -48,11 +52,21 @@ function htmlToPage ( infoDiv ) {
 
 }
 
+
+
+
+
+
 // for( i = 0; i < infoDiv.length; i++ ) {
 // 		htmlString += '<p>' + 'Do you also celebrate ' + infoDiv[i].celebrations.title + ' and wear ' + infoDiv[i].celebrations.colour + '?</p>'
 
 // why isn't it workingggggggg =(
 
+
+// Goal 
+
+// The user needs to be able to navigate the data without reloading the whole page.
+//[
 // {
 	// date: "2017-11-01",
 	// season: "ordinary",
@@ -66,4 +80,5 @@ function htmlToPage ( infoDiv ) {
 		// }
 	// ],
 	// weekday: "wednesday"
-	// },
+	// }
+//]
