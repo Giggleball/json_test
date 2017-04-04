@@ -33,23 +33,21 @@ function htmlToPage ( infoDiv ) {
 
 	// Looping through the json file with an array inside an array
 	for( i = 0; i < infoDiv.length; i++ ) {
-		htmlString += '<p>' + 'Is ' + infoDiv[i].weekday + ' your favourite day '
-
+		
 		// Because you loop through an object within an array within an object you have to access through [ ] then .
 		for( ii = 0; ii < infoDiv[i].celebrations.length; ii++ ) {
 
-			// I want to add a condition to only display the info which contains info in all three sections
-			if ( infoDiv[i].celebrations[ii].length === 0 ) {
-				// Do not display it! 
-				htmlString += ''
-			} else { // continue the sentence 
-				htmlString += ' to celebrate ' + infoDiv[i].celebrations[ii].title + ' and '
-			}
+			// I want to add a condition to only display the info which contains info in all three sections => HOW
+			if ( infoDiv[i].celebrations[ii].title !== 0 ) {
+				
+				// If the title is not empty => print
+				htmlString += '<p>' + 'Is ' + infoDiv[i].weekday + ' your favourite day to celebrate ' + infoDiv[i].celebrations[ii].title + ' and '
+			} 
 		}
 			
 
 		for( ii = 0; ii < infoDiv[i].celebrations.length; ii++ ) {				
-			// I want to only display the first colour in the object
+			// I want to only display the first colour in the object => HOW
 			htmlString += ' wear ' + infoDiv[i].celebrations[ii].colour
 			}
 
@@ -61,19 +59,18 @@ function htmlToPage ( infoDiv ) {
 }
 
 
-
-
-
-
-// for( i = 0; i < infoDiv.length; i++ ) {
-// 		htmlString += '<p>' + 'Do you also celebrate ' + infoDiv[i].celebrations.title + ' and wear ' + infoDiv[i].celebrations.colour + '?</p>'
-
-// why isn't it workingggggggg =(
-
-
 // Goal 
 
 // The user needs to be able to navigate the data without reloading the whole page.
+
+// To do list :
+// 		1. display only certain data
+//		2. display only 1 colour from json
+// 		3. link data to a day { if entered wednesday, present all celebrations of that day with fav colour }
+//			Then change text to "On [day] we celebrate [celebrations] and wear [colour]"
+//		4. make it look decent
+
+
 //[
 // {
 	// date: "2017-11-01",
